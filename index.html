@@ -307,43 +307,49 @@
   <!-- 四組 grid（由 JS 動態渲染，靜態為預載） -->
   <div id="wbcPoolGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin-bottom:24px;">
 
-    <!-- A組 預載 -->
+    <!-- A組 3/11 最終結果 -->
     <div class="cpbl-panel">
       <div class="panel-title" style="flex-direction:column;align-items:flex-start;gap:2px;">
-        <span>🅰 A組 — 聖胡安（波多黎各）</span>
+        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+          <span>🅰 A組 — 聖胡安（波多黎各）</span>
+          <span class="game-status status-final" style="font-size:9px;">✓ 確定</span>
+        </div>
       </div>
       <table class="standing-table">
         <thead><tr><th>#</th><th>國家</th><th>勝</th><th>敗</th><th>得</th><th>失</th><th>狀態</th></tr></thead>
         <tbody>
           <tr><td class="team-rank rank-1">1</td><td>🇵🇷 波多黎各</td><td>3</td><td>1</td><td>17</td><td>10</td><td><span class="game-status status-upcoming">晉級</span></td></tr>
-          <tr><td class="team-rank">2</td><td>🇨🇦 加拿大</td><td>2</td><td>1</td><td>14</td><td>9</td><td><span class="game-status" style="background:rgba(200,168,75,.15);color:var(--accent);">待定</span></td></tr>
-          <tr><td class="team-rank">3</td><td>🇨🇺 古巴</td><td>2</td><td>2</td><td>15</td><td>10</td><td><span class="game-status" style="background:rgba(200,168,75,.15);color:var(--accent);">待定</span></td></tr>
+          <tr><td class="team-rank">2</td><td>🇨🇦 加拿大</td><td>3</td><td>1</td><td>25</td><td>13</td><td><span class="game-status status-upcoming">晉級</span></td></tr>
+          <tr><td class="team-rank">3</td><td>🇨🇺 古巴</td><td>2</td><td>2</td><td>15</td><td>14</td><td><span class="game-status status-final">淘汰</span></td></tr>
           <tr><td class="team-rank">4</td><td>🇵🇦 巴拿馬</td><td>1</td><td>3</td><td>11</td><td>17</td><td><span class="game-status status-final">淘汰</span></td></tr>
           <tr><td class="team-rank">5</td><td>🇨🇴 哥倫比亞</td><td>1</td><td>3</td><td>10</td><td>21</td><td><span class="game-status status-final">淘汰</span></td></tr>
         </tbody>
       </table>
-      <div style="padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);line-height:1.8;border-top:1px solid var(--border);">波多黎各確定晉級 ｜ 3/11 加拿大 vs 古巴，勝者晉級</div>
+      <div style="padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--accent2);line-height:1.8;border-top:1px solid var(--border);">✓ 波多黎各、加拿大晉級 ｜ 加拿大 3/11 擊敗古巴確定出線</div>
     </div>
 
-    <!-- B組 預載（已更新：義大利擊敗美國） -->
+    <!-- B組 3/10 義大利擊敗美國 -->
     <div class="cpbl-panel">
       <div class="panel-title" style="flex-direction:column;align-items:flex-start;gap:2px;">
-        <span>🅱 B組 — 休士頓（美國）</span>
+        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+          <span>🅱 B組 — 休士頓（美國）</span>
+          <span class="game-status status-final" style="font-size:9px;">✓ 確定</span>
+        </div>
       </div>
       <table class="standing-table">
         <thead><tr><th>#</th><th>國家</th><th>勝</th><th>敗</th><th>得</th><th>失</th><th>狀態</th></tr></thead>
         <tbody>
           <tr><td class="team-rank rank-1">1</td><td>🇺🇸 美國</td><td>3</td><td>1</td><td>29</td><td>14</td><td><span class="game-status status-upcoming">晉級</span></td></tr>
-          <tr><td class="team-rank">2</td><td>🇮🇹 義大利</td><td>3</td><td>1</td><td>19</td><td>12</td><td><span class="game-status status-upcoming">晉級</span></td></tr>
+          <tr><td class="team-rank">2</td><td>🇮🇹 義大利</td><td>3</td><td>1</td><td>25</td><td>12</td><td><span class="game-status status-upcoming">晉級</span></td></tr>
           <tr><td class="team-rank">3</td><td>🇲🇽 墨西哥</td><td>2</td><td>2</td><td>27</td><td>13</td><td><span class="game-status status-final">淘汰</span></td></tr>
           <tr><td class="team-rank">4</td><td>🇬🇧 英國</td><td>1</td><td>3</td><td>15</td><td>26</td><td><span class="game-status status-final">淘汰</span></td></tr>
           <tr><td class="team-rank">5</td><td>🇧🇷 巴西</td><td>0</td><td>4</td><td>6</td><td>37</td><td><span class="game-status status-final">淘汰</span></td></tr>
         </tbody>
       </table>
-      <div style="padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--accent2);line-height:1.8;border-top:1px solid var(--border);">✓ 美國、義大利均已確定晉級 ｜ 義大利擊敗美國（3/10）出線</div>
+      <div style="padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--accent2);line-height:1.8;border-top:1px solid var(--border);">✓ 美國、義大利晉級 ｜ 義大利 3/10 爆冷擊敗美國 8:x</div>
     </div>
 
-    <!-- C組 預載 -->
+    <!-- C組 中華台北所在組 -->
     <div class="cpbl-panel" style="border-color:rgba(200,168,75,.4);">
       <div class="panel-title" style="flex-direction:column;align-items:flex-start;gap:2px;background:rgba(200,168,75,.04);">
         <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
@@ -364,22 +370,25 @@
       <div style="padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--accent);line-height:1.8;border-top:1px solid rgba(200,168,75,.3);background:rgba(200,168,75,.04);">★ 台/韓/澳同2勝2敗，依失分率韓國晉級，中華台北淘汰<br>■ 中華：❌澳0-3 ❌日0-13 ✅捷14-0 ✅韓5-4延長</div>
     </div>
 
-    <!-- D組 預載 -->
+    <!-- D組 -->
     <div class="cpbl-panel">
       <div class="panel-title" style="flex-direction:column;align-items:flex-start;gap:2px;">
-        <span>🅳 D組 — 邁阿密（美國）</span>
+        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+          <span>🅳 D組 — 邁阿密（美國）</span>
+          <span class="game-status status-final" style="font-size:9px;">✓ 確定</span>
+        </div>
       </div>
       <table class="standing-table">
         <thead><tr><th>#</th><th>國家</th><th>勝</th><th>敗</th><th>得</th><th>失</th><th>狀態</th></tr></thead>
         <tbody>
-          <tr><td class="team-rank rank-1">1</td><td>🇩🇴 多明尼加</td><td>3</td><td>0</td><td>34</td><td>7</td><td><span class="game-status status-upcoming">晉級</span></td></tr>
-          <tr><td class="team-rank">2</td><td>🇻🇪 委內瑞拉</td><td>3</td><td>0</td><td>21</td><td>5</td><td><span class="game-status status-upcoming">晉級</span></td></tr>
+          <tr><td class="team-rank rank-1">1</td><td>🇩🇴 多明尼加</td><td>4</td><td>0</td><td>38</td><td>7</td><td><span class="game-status status-upcoming">晉級</span></td></tr>
+          <tr><td class="team-rank">2</td><td>🇻🇪 委內瑞拉</td><td>3</td><td>1</td><td>21</td><td>9</td><td><span class="game-status status-upcoming">晉級</span></td></tr>
           <tr><td class="team-rank">3</td><td>🇳🇱 荷蘭</td><td>1</td><td>3</td><td>9</td><td>23</td><td><span class="game-status status-final">淘汰</span></td></tr>
-          <tr><td class="team-rank">4</td><td>🇮🇱 以色列</td><td>0</td><td>3</td><td>5</td><td>28</td><td><span class="game-status status-final">淘汰</span></td></tr>
-          <tr><td class="team-rank">5</td><td>🇳🇮 尼加拉瓜</td><td>0</td><td>3</td><td>6</td><td>13</td><td><span class="game-status status-final">淘汰</span></td></tr>
+          <tr><td class="team-rank">4</td><td>🇮🇱 以色列</td><td>1</td><td>3</td><td>7</td><td>28</td><td><span class="game-status status-final">淘汰</span></td></tr>
+          <tr><td class="team-rank">5</td><td>🇳🇮 尼加拉瓜</td><td>0</td><td>4</td><td>6</td><td>14</td><td><span class="game-status status-final">淘汰</span></td></tr>
         </tbody>
       </table>
-      <div style="padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);line-height:1.8;border-top:1px solid var(--border);">多明尼加、委內瑞拉均已確定晉級 ｜ 3/11 最終戰決定組別第一</div>
+      <div style="padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--accent2);line-height:1.8;border-top:1px solid var(--border);">✓ 多明尼加第一、委內瑞拉第二晉級 ｜ 3/11 多明尼加擊敗委內瑞拉</div>
     </div>
 
   </div><!-- end pools grid -->
@@ -431,7 +440,7 @@
 const CONFIG = {
   // 部署 cloudflare-worker.js 後填入 Worker URL
   // 本機測試用 claude.ai 時留空即可（claude.ai 環境會自動處理）
-  PROXY_URL: "https://baseball-proxy.jinlyu13249.workers.dev/",
+  PROXY_URL: "",
 
   // localStorage 快取過期時間（毫秒）
   CACHE_TTL_STATS: 24 * 60 * 60 * 1000,   // 成績：24 小時
