@@ -180,6 +180,77 @@
 
   footer { padding:20px 32px; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:1px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
 
+
+
+  /* stat popover */
+  .stat-pop { position:relative; background:var(--bg); border:1px solid var(--accent); border-radius:4px; padding:12px; margin-top:8px; z-index:10; }
+
+  /* ── 自選球員 ── */
+  .search-bar { display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
+  .search-input { flex:1; min-width:200px; background:var(--card); border:1px solid var(--border); color:var(--text); font-family:'IBM Plex Mono',monospace; font-size:13px; padding:10px 14px; border-radius:3px; outline:none; transition:border-color .2s; }
+  .search-input:focus { border-color:var(--accent); }
+  .search-input::placeholder { color:var(--muted); }
+  .search-results { background:var(--card); border:1px solid var(--border); border-radius:3px; overflow:hidden; margin-bottom:20px; }
+  .search-result-item { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-bottom:1px solid var(--border); cursor:pointer; transition:background .15s; gap:12px; }
+  .search-result-item:last-child { border-bottom:none; }
+  .search-result-item:hover { background:rgba(200,168,75,.06); }
+  .result-name { font-size:14px; font-weight:700; color:var(--text); }
+  .result-meta { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:1px; margin-top:2px; }
+  .result-add-btn { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; padding:5px 12px; background:transparent; border:1px solid var(--accent2); color:var(--accent2); border-radius:2px; cursor:pointer; white-space:nowrap; transition:all .15s; }
+  .result-add-btn:hover { background:rgba(42,255,122,.1); }
+  .result-add-btn.added { border-color:var(--muted); color:var(--muted); cursor:default; }
+
+  /* 自選球員卡片 */
+  .watchlist-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; }
+  .wl-card { background:var(--card); border:1px solid var(--border); border-radius:4px; overflow:hidden; transition:transform .15s,border-color .15s; }
+  .wl-card:hover { transform:translateY(-2px); border-color:rgba(200,168,75,.3); }
+  .wl-card-header { padding:14px 16px 10px; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+  .wl-name { font-size:20px; font-weight:900; color:#fff; line-height:1.2; }
+  .wl-meta { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); margin-top:3px; letter-spacing:1px; }
+  .wl-actions { display:flex; gap:6px; flex-shrink:0; }
+  .wl-btn { font-size:13px; background:transparent; border:none; cursor:pointer; padding:4px; opacity:.5; transition:opacity .2s; }
+  .wl-btn:hover { opacity:1; }
+  .wl-stats { padding:12px 16px; min-height:60px; }
+  .wl-stats-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(56px,1fr)); gap:6px; }
+  .wl-stat-cell { text-align:center; }
+  .wl-stat-val { font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:600; color:var(--text); line-height:1; }
+  .wl-stat-val.hl { color:var(--accent2); }
+  .wl-stat-lbl { font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:1px; margin-top:2px; }
+  .wl-footer { padding:7px 16px; background:rgba(0,0,0,.2); border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--muted); display:flex; justify-content:space-between; align-items:center; }
+  .wl-refresh-btn { font-size:9px; background:transparent; border:1px solid var(--border); color:var(--muted); border-radius:2px; padding:2px 8px; cursor:pointer; transition:all .15s; letter-spacing:1px; }
+  .wl-refresh-btn:hover { border-color:var(--accent2); color:var(--accent2); }
+
+  /* 設定面板 */
+  .stat-settings { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:16px 20px; margin-bottom:20px; }
+  .stat-settings-title { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .stat-settings-row { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:8px; }
+  .stat-settings-group { flex:1; min-width:200px; }
+  .stat-group-label { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:1px; margin-bottom:6px; }
+  .stat-checkboxes { display:flex; flex-wrap:wrap; gap:6px; }
+  .stat-cb-label { display:flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text); background:rgba(0,0,0,.2); border:1px solid var(--border); border-radius:2px; padding:4px 8px; cursor:pointer; transition:all .15s; user-select:none; }
+  .stat-cb-label:hover { border-color:var(--accent); }
+  .stat-cb-label input { display:none; }
+  .stat-cb-label.checked { border-color:var(--accent2); color:var(--accent2); background:rgba(42,255,122,.08); }
+
+  /* 手動新增 NPB modal */
+  .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:1000; align-items:center; justify-content:center; }
+  .modal-overlay.open { display:flex; }
+  .modal { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:24px; width:90%; max-width:480px; }
+  .modal-title { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:2px; color:var(--accent); margin-bottom:16px; }
+  .modal-field { margin-bottom:12px; }
+  .modal-label { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:1px; margin-bottom:4px; }
+  .modal-input { width:100%; background:var(--bg); border:1px solid var(--border); color:var(--text); font-family:'IBM Plex Mono',monospace; font-size:12px; padding:8px 10px; border-radius:2px; outline:none; }
+  .modal-input:focus { border-color:var(--accent); }
+  .modal-select { width:100%; background:var(--bg); border:1px solid var(--border); color:var(--text); font-family:'IBM Plex Mono',monospace; font-size:12px; padding:8px 10px; border-radius:2px; outline:none; }
+  .modal-btns { display:flex; gap:8px; justify-content:flex-end; margin-top:16px; }
+  .modal-btn { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:1px; padding:8px 18px; border-radius:2px; cursor:pointer; }
+  .modal-btn-cancel { background:transparent; border:1px solid var(--border); color:var(--muted); }
+  .modal-btn-ok { background:transparent; border:1px solid var(--accent); color:var(--accent); }
+  .modal-btn-ok:hover { background:rgba(200,168,75,.1); }
+
+  .empty-watchlist { text-align:center; padding:48px 20px; color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1px; line-height:2; }
+  .search-loading { padding:12px 16px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent); display:flex; align-items:center; gap:8px; }
+
   @media(max-width:768px) {
     .cpbl-grid{grid-template-columns:1fr}
     .player-grid{grid-template-columns:1fr}
@@ -190,9 +261,6 @@
     .header-right{align-items:flex-start}
   }
 </style>
-</head>
-<body>
-
 <header>
   <div class="header-top">
     <div>
@@ -212,6 +280,7 @@
           <span class="btn-icon">⟳</span>
           <span class="btn-text">更新旅外數據</span>
         </button>
+
       </div>
     </div>
   </div>
@@ -226,6 +295,7 @@
     <button class="tab active" onclick="switchTab('overseas',this)">旅外球員</button>
     <button class="tab" onclick="switchTab('cpbl',this)">中職賽況</button>
     <button class="tab" onclick="switchTab('wbc',this)">WBC 四組戰績</button>
+    <button class="tab" onclick="switchTab('tracker',this)">⭐ 球員追蹤</button>
     <button class="tab" onclick="switchTab('amateur',this)">三級棒球資源</button>
   </div>
 </header>
@@ -416,6 +486,106 @@
 
 </section>
 
+<!-- 自選球員 -->
+<section class="section" id="watchlist">
+
+  <!-- 搜尋列 -->
+  <div class="search-bar">
+    <input class="search-input" id="playerSearchInput" type="text"
+      placeholder="輸入球員姓名（中/英文皆可），例如：林昱珉、陳傑憲、Ohtani"
+      oninput="onSearchInput(this.value)"
+      onkeydown="if(event.key==='Enter')searchPlayer()">
+    <button class="action-btn btn-primary" onclick="searchPlayer()" style="white-space:nowrap;">
+      <span class="btn-icon">🔍</span><span class="btn-text">搜尋</span>
+    </button>
+    <button class="action-btn btn-secondary" onclick="openManualModal()" style="white-space:nowrap;">
+      <span class="btn-icon">＋</span><span class="btn-text">手動新增</span>
+    </button>
+  </div>
+
+  <!-- 搜尋結果 -->
+  <div id="searchResultsBox" style="display:none;" class="search-results"></div>
+
+  <!-- 顯示欄位設定 -->
+  <div class="stat-settings" id="statSettingsPanel" style="display:none;">
+    <div class="stat-settings-title">⚙ 顯示欄位設定</div>
+    <div class="stat-settings-row">
+      <div class="stat-settings-group">
+        <div class="stat-group-label">投手欄位</div>
+        <div class="stat-checkboxes" id="pitcherStatCbs"></div>
+      </div>
+      <div class="stat-settings-group">
+        <div class="stat-group-label">野手欄位</div>
+        <div class="stat-checkboxes" id="batterStatCbs"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 球員卡片 -->
+  <div class="watchlist-grid" id="watchlistGrid"></div>
+
+</section>
+
+<!-- 手動新增 Modal -->
+<div class="modal-overlay" id="manualModal">
+  <div class="modal">
+    <div class="modal-title">手動新增球員</div>
+    <div class="modal-field">
+      <div class="modal-label">球員姓名（中文）</div>
+      <input class="modal-input" id="m_nameZh" placeholder="例如：徐若熙">
+    </div>
+    <div class="modal-field">
+      <div class="modal-label">球員姓名（英文）</div>
+      <input class="modal-input" id="m_nameEn" placeholder="例如：Jo-Hsi Hsu">
+    </div>
+    <div class="modal-field">
+      <div class="modal-label">球隊</div>
+      <input class="modal-input" id="m_team" placeholder="例如：福岡軟銀鷹">
+    </div>
+    <div class="modal-field">
+      <div class="modal-label">守備位置 / 類型</div>
+      <select class="modal-select" id="m_type">
+        <option value="pitcher">投手 Pitcher</option>
+        <option value="batter">野手 Batter</option>
+      </select>
+    </div>
+    <div class="modal-field">
+      <div class="modal-label">聯盟</div>
+      <select class="modal-select" id="m_league">
+        <option value="NPB">NPB 日職</option>
+        <option value="MLB">MLB</option>
+        <option value="MiLB">MiLB 小聯盟</option>
+        <option value="CPBL">CPBL 中職</option>
+      </select>
+    </div>
+    <div class="modal-btns">
+      <button class="modal-btn modal-btn-cancel" onclick="closeManualModal()">取消</button>
+      <button class="modal-btn modal-btn-ok" onclick="addManualPlayer()">新增</button>
+    </div>
+  </div>
+</div>
+
+<!-- 球員追蹤 -->
+<section class="section" id="tracker">
+
+  <div class="search-bar">
+    <input class="search-input" id="playerSearchInput" type="text"
+      placeholder="輸入球員姓名（中/英文皆可），例如：林昱珉、陳傑憲、Ohtani"
+      oninput="onSearchInput(this.value)"
+      onkeydown="if(event.key==='Enter')doSearch()">
+    <button class="action-btn btn-primary" onclick="doSearch()" style="white-space:nowrap;">
+      <span class="btn-icon">🔍</span><span class="btn-text">搜尋</span>
+    </button>
+    <button class="action-btn btn-secondary" onclick="openManualModal()" style="white-space:nowrap;">
+      <span class="btn-icon">＋</span><span class="btn-text">手動新增 NPB</span>
+    </button>
+  </div>
+
+  <div id="searchResultsBox" style="display:none;" class="search-results"></div>
+  <div class="watchlist-grid" id="watchlistGrid"></div>
+
+</section>
+
 <!-- 三級棒球 -->
 <section class="section" id="amateur">
   <div class="api-note">📚 三級棒球<strong>沒有公開 API</strong>，以下整理現有最佳查詢資源。</div>
@@ -433,6 +603,7 @@
   <div>⚾ Taiwan Baseball Tracker v5 — <span id="buildTime"></span></div>
 </footer>
 
+
 <script>
 // ══════════════════════════════════════════════════════════
 // ⚙️ 設定區 — 部署到 GitHub Pages 前修改這裡
@@ -440,7 +611,7 @@
 const CONFIG = {
   // 部署 cloudflare-worker.js 後填入 Worker URL
   // 本機測試用 claude.ai 時留空即可（claude.ai 環境會自動處理）
-  PROXY_URL: "",
+  PROXY_URL: "https://baseball-proxy.jinlyu13249.workers.dev/",  // Cloudflare Worker
 
   // localStorage 快取過期時間（毫秒）
   CACHE_TTL_STATS: 24 * 60 * 60 * 1000,   // 成績：24 小時
@@ -584,9 +755,15 @@ async function fetchPlayerNews(player, forceRefresh = false) {
     if (cached) return cached;
   }
 
-  const prompt = `請用網路搜尋台灣棒球選手 ${player.nameZh}（${player.nameEn}，${player.team}）最近的新聞或近況，找最新10筆。
-只回傳 JSON 陣列，不要其他文字：
-[{"date":"YYYY-MM-DD","title":"標題繁體中文20字內","desc":"摘要繁體中文50字內","tag":"game|injury|trade|highlight|general"}]`;
+  const league = player.league || '';
+  const searchHint = league === 'CPBL'
+    ? `中華職棒 ${player.team}`
+    : league === 'NPB'
+    ? `日本職棒 ${player.team}`
+    : player.team;
+  const prompt = `請用網路搜尋棒球選手「${player.nameZh}」（${player.nameEn}，${searchHint}）最近的繁體中文新聞與近況，優先搜尋台灣媒體（運動視界、中時、聯合、自由、UDN、PTT、CPBL官網），找最新10筆。
+只回傳 JSON 陣列，不要任何其他文字或說明：
+[{"date":"YYYY-MM-DD","title":"繁體中文標題25字內","desc":"繁體中文摘要60字內","tag":"game|injury|trade|highlight|general","source":"來源媒體名稱"}]`;
 
   try {
     const text = await callClaude({
@@ -800,7 +977,8 @@ function renderNews(container, nameZh, news) {
           <div class="news-desc">${esc(item.desc)}</div>
           <div class="news-footer">
             <span class="news-tag tag-${item.tag||'general'}">${tagLabel[item.tag]||'近況'}</span>
-            <span class="news-unverified">⚠ 未驗證</span>
+            ${item.source ? `<span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);">${esc(item.source)}</span>` : ''}
+            <span class="news-unverified">⚠ AI搜尋，請自行查證</span>
           </div>
         </div>
       </div>`).join('')}`;
@@ -1129,12 +1307,410 @@ function renderWBCPools(data) {
   }).join('');
 }
 
+
+// ══════════════════════════════════════════════════════════
+// ⭐ 球員追蹤功能
+// ══════════════════════════════════════════════════════════
+
+const SEASON_NOW = new Date().getFullYear();
+
+// ── 可選欄位定義 ────────────────────────────────────────────
+const PITCHER_DEFS = [
+  { key:'era',            label:'ERA',  path: s=>s.era||s.ERA||'--',            hl:true },
+  { key:'wins',           label:'W',    path: s=>s.wins||s.W||'--' },
+  { key:'losses',         label:'L',    path: s=>s.losses||s.L||'--' },
+  { key:'inningsPitched', label:'IP',   path: s=>s.inningsPitched||s.IP||'--' },
+  { key:'strikeOuts',     label:'K',    path: s=>s.strikeOuts||s.K||'--' },
+  { key:'baseOnBalls',    label:'BB',   path: s=>s.baseOnBalls||s.BB||'--' },
+  { key:'whip',           label:'WHIP', path: s=>s.whip||'--' },
+  { key:'saves',          label:'SV',   path: s=>s.saves||'--' },
+  { key:'gamesPlayed',    label:'G',    path: s=>s.gamesPlayed||s.games||'--' },
+  { key:'homeRunsAllowed',label:'HR',   path: s=>s.homeRuns||s.homeRunsAllowed||'--' },
+];
+const BATTER_DEFS = [
+  { key:'avg',          label:'AVG',  path: s=>s.avg||s.battingAverage||s.AVG||'.---', hl:true },
+  { key:'homeRuns',     label:'HR',   path: s=>s.homeRuns||s.HR||'--' },
+  { key:'rbi',          label:'RBI',  path: s=>s.rbi||s.RBI||'--' },
+  { key:'gamesPlayed',  label:'G',    path: s=>s.gamesPlayed||s.G||'--' },
+  { key:'runs',         label:'R',    path: s=>s.runs||s.R||'--' },
+  { key:'stolenBases',  label:'SB',   path: s=>s.stolenBases||s.SB||'--' },
+  { key:'obp',          label:'OBP',  path: s=>s.obp||s.onBasePercentage||'--' },
+  { key:'slg',          label:'SLG',  path: s=>s.slg||s.sluggingPercentage||'--' },
+  { key:'ops',          label:'OPS',  path: s=>s.ops||'--' },
+  { key:'hits',         label:'H',    path: s=>s.hits||'--' },
+];
+const ALL_PITCHER_KEYS = PITCHER_DEFS.map(d=>d.key);
+const ALL_BATTER_KEYS  = BATTER_DEFS.map(d=>d.key);
+const DEFAULT_PITCHER  = ['era','wins','losses','inningsPitched','strikeOuts','baseOnBalls','whip'];
+const DEFAULT_BATTER   = ['avg','homeRuns','rbi','gamesPlayed','runs','stolenBases','obp'];
+
+// ── localStorage helpers for watchlist ──────────────────────
+function loadWatchlist() {
+  try { return JSON.parse(localStorage.getItem('watchlist2') || '[]'); } catch { return []; }
+}
+function saveWatchlist(list) { localStorage.setItem('watchlist2', JSON.stringify(list)); }
+
+function getPlayerPrefs(id) {
+  try {
+    const all = JSON.parse(localStorage.getItem('playerPrefs') || '{}');
+    return all[id] || null;
+  } catch { return null; }
+}
+function setPlayerPrefs(id, prefs) {
+  try {
+    const all = JSON.parse(localStorage.getItem('playerPrefs') || '{}');
+    all[id] = prefs;
+    localStorage.setItem('playerPrefs', JSON.stringify(all));
+  } catch {}
+}
+
+// ── 搜尋 ────────────────────────────────────────────────────
+let _searchTimer = null;
+function onSearchInput(val) {
+  clearTimeout(_searchTimer);
+  const box = document.getElementById('searchResultsBox');
+  if (val.length < 2) { box.style.display='none'; return; }
+  _searchTimer = setTimeout(() => doSearch(val), 600);
+}
+
+async function doSearch(queryOverride) {
+  const q = (queryOverride || document.getElementById('playerSearchInput').value).trim();
+  if (q.length < 2) return;
+  const box = document.getElementById('searchResultsBox');
+  box.style.display = 'block';
+  box.innerHTML = `<div class="search-loading"><span style="display:inline-block;animation:spin 1s linear infinite;">⟳</span>&nbsp;搜尋中...</div>`;
+
+  const isChinese = /[\u4e00-\u9fff]/.test(q);
+
+  if (!isChinese) {
+    // ── 英文名 → MLB Stats API ──────────────────────────────
+    try {
+      const res  = await fetch(`https://statsapi.mlb.com/api/v1/people/search?names=${encodeURIComponent(q)}&sportIds=1,11,12,13,14,15,16&hydrate=currentTeam`);
+      const data = await res.json();
+      const ppl  = data?.people || [];
+      if (!ppl.length) {
+        box.innerHTML = `<div style="padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">找不到「${esc(q)}」— 也可以輸入中文名搜尋</div>`;
+        return;
+      }
+      renderMLBSearchResults(ppl, box);
+    } catch {
+      box.innerHTML = `<div style="padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--red);">搜尋失敗，請稍後再試</div>`;
+    }
+  } else {
+    // ── 中文名 → AI 搜尋（MLB + CPBL + NPB 全涵蓋） ────────
+    try {
+      const prompt = `請搜尋棒球選手「${q}」的資料。他可能在 MLB、MiLB、NPB 或 CPBL 中華職棒。
+只回傳 JSON 陣列，不要其他文字，最多8筆：
+[{
+  "nameZh": "中文名",
+  "nameEn": "英文名",
+  "team": "球隊名稱",
+  "league": "MLB或MiLB或NPB或CPBL",
+  "pos": "守備位置縮寫如SP/RP/SS/OF/1B等",
+  "type": "pitcher或batter",
+  "mlbId": 數字或null
+}]`;
+      const text = await callClaude({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 800,
+        tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+        messages: [{ role: 'user', content: prompt }]
+      });
+      if (!text) throw new Error('no response');
+      const match = text.replace(/```json|```/g,'').match(/\[[\s\S]*\]/);
+      if (!match) throw new Error('no json');
+      const players = JSON.parse(match[0]);
+      if (!players.length) {
+        box.innerHTML = `<div style="padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">找不到「${esc(q)}」相關球員</div>`;
+        return;
+      }
+      const wl    = loadWatchlist();
+      const wlSet = new Set(wl.map(p => p.nameZh));
+      box.innerHTML = players.map(p => {
+        const added = wlSet.has(p.nameZh);
+        const leagueTag = {MLB:'tag-mlb',MiLB:'tag-milb',NPB:'tag-npb',CPBL:'tag-milb'}[p.league]||'tag-milb';
+        return `<div class="search-result-item">
+          <div>
+            <div class="result-name">${esc(p.nameZh)} <span style="font-size:11px;color:var(--muted);font-weight:400;">${esc(p.nameEn)}</span></div>
+            <div class="result-meta">
+              <span class="league-tag ${leagueTag}" style="font-size:9px;padding:1px 5px;">${p.league}</span>
+              &nbsp;${esc(p.team)} ｜ ${esc(p.pos)}
+            </div>
+          </div>
+          <button class="result-add-btn ${added?'added':''}" ${added?'disabled':''}
+            onclick="addFromAISearch(${JSON.stringify(p).replace(/"/g,'&quot;')},this)">
+            ${added?'已追蹤':'＋ 追蹤'}
+          </button>
+        </div>`;
+      }).join('');
+    } catch {
+      box.innerHTML = `<div style="padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--red);">AI 搜尋失敗，請確認 Cloudflare Worker 設定</div>`;
+    }
+  }
+}
+
+function renderMLBSearchResults(ppl, box) {
+  const wl    = loadWatchlist();
+  const wlIds = new Set(wl.map(p=>p.mlbId).filter(Boolean));
+  box.innerHTML = ppl.slice(0,8).map(p => {
+    const pos       = p.primaryPosition?.abbreviation || '--';
+    const isPitcher = ['P','SP','RP','CP'].includes(pos);
+    const team      = p.currentTeam?.name || '未知球隊';
+    const added     = wlIds.has(p.id);
+    return `<div class="search-result-item">
+      <div>
+        <div class="result-name">${esc(p.fullName)}</div>
+        <div class="result-meta">
+          <span class="league-tag tag-mlb" style="font-size:9px;padding:1px 5px;">MLB</span>
+          &nbsp;${esc(team)} ｜ ${pos}
+        </div>
+      </div>
+      <button class="result-add-btn ${added?'added':''}" ${added?'disabled':''}
+        onclick="addFromSearch(${p.id},'${esc(p.fullName).replace(/'/g,"\'")}','${esc(team).replace(/'/g,"\'")}','${pos}','${isPitcher?'pitcher':'batter'}',this)">
+        ${added?'已追蹤':'＋ 追蹤'}
+      </button>
+    </div>`;
+  }).join('');
+}
+
+function addFromAISearch(player, btn) {
+  const wl = loadWatchlist();
+  if (wl.find(p => p.nameZh === player.nameZh)) return;
+  wl.push({
+    id: Date.now(),
+    mlbId:  player.mlbId || null,
+    nameZh: player.nameZh,
+    nameEn: player.nameEn || player.nameZh,
+    team:   player.team,
+    pos:    player.pos,
+    type:   player.type,
+    league: player.league,
+    addedAt: Date.now()
+  });
+  saveWatchlist(wl);
+  btn.textContent = '已追蹤'; btn.disabled = true; btn.classList.add('added');
+  renderWatchlist();
+}
+
+function addFromSearch(mlbId, nameEn, team, pos, type, btn) {
+  const wl = loadWatchlist();
+  if (wl.find(p=>p.mlbId===mlbId)) return;
+  wl.push({ id:Date.now(), mlbId, nameZh:nameEn, nameEn, team, pos, type, league:'MLB', addedAt:Date.now() });
+  saveWatchlist(wl);
+  btn.textContent = '已追蹤'; btn.disabled = true; btn.classList.add('added');
+  renderWatchlist();
+}
+
+// ── 手動新增（NPB / CPBL） ──────────────────────────────────
+function openManualModal()  { document.getElementById('manualModal').classList.add('open'); }
+function closeManualModal() { document.getElementById('manualModal').classList.remove('open'); }
+function addManualPlayer() {
+  const nameZh = document.getElementById('m_nameZh').value.trim();
+  const nameEn = document.getElementById('m_nameEn').value.trim();
+  const team   = document.getElementById('m_team').value.trim();
+  const type   = document.getElementById('m_type').value;
+  const league = document.getElementById('m_league').value;
+  if (!nameZh && !nameEn) { alert('請至少填寫球員名字'); return; }
+  const wl = loadWatchlist();
+  wl.push({ id:Date.now(), mlbId:null, nameZh:nameZh||nameEn, nameEn:nameEn||nameZh, team, pos:type==='pitcher'?'P':'OF', type, league, addedAt:Date.now() });
+  saveWatchlist(wl);
+  closeManualModal();
+  ['m_nameZh','m_nameEn','m_team'].forEach(id=>{ document.getElementById(id).value=''; });
+  renderWatchlist();
+}
+
+// ── 取得成績 ──────────────────────────────────────────────
+async function fetchPlayerStatWL(player, force=false) {
+  const cacheKey = 'wls_' + player.id;
+  if (!force) {
+    const cached = LS.get(cacheKey, 'v', CONFIG.CACHE_TTL_STATS);
+    if (cached) return cached;
+  }
+
+  // MLB Stats API
+  if (player.mlbId) {
+    const group = player.type==='pitcher' ? 'pitching' : 'hitting';
+    try {
+      const res  = await fetch(`https://statsapi.mlb.com/api/v1/people/${player.mlbId}/stats?stats=season&season=${SEASON_NOW}&group=${group}`);
+      const data = await res.json();
+      const stat = data?.stats?.[0]?.splits?.[0]?.stat;
+      if (stat) { LS.set(cacheKey, 'v', stat); return stat; }
+    } catch {}
+    return null;
+  }
+
+  // NPB / CPBL → Claude AI
+  const prompt = player.type==='pitcher'
+    ? `Search for pitcher ${player.nameEn || player.nameZh} (${player.team}, ${player.league}) ${SEASON_NOW} season stats. Return JSON only: {"era":"x.xx","wins":0,"losses":0,"inningsPitched":"x.x","strikeOuts":0,"baseOnBalls":0,"whip":"x.xx","saves":0,"gamesPlayed":0}`
+    : `Search for batter ${player.nameEn || player.nameZh} (${player.team}, ${player.league}) ${SEASON_NOW} season stats. Return JSON only: {"avg":".xxx","homeRuns":0,"rbi":0,"gamesPlayed":0,"runs":0,"stolenBases":0,"obp":".xxx","slg":".xxx","ops":".xxx","hits":0}`;
+  try {
+    const text = await callClaude({
+      model:'claude-sonnet-4-20250514', max_tokens:500,
+      tools:[{type:'web_search_20250305',name:'web_search'}],
+      messages:[{role:'user',content:prompt}]
+    });
+    if (!text) return null;
+    const m = text.replace(/```json|```/g,'').match(/\{[\s\S]*?\}/);
+    if (!m) return null;
+    const stat = JSON.parse(m[0]);
+    LS.set(cacheKey, 'v', stat);
+    return stat;
+  } catch { return null; }
+}
+
+// ── 欄位選擇 Popover ──────────────────────────────────────
+let _activePop = null;
+function openStatPop(playerId, type) {
+  // 關掉其他的
+  document.querySelectorAll('.stat-pop').forEach(el=>el.remove());
+  if (_activePop === playerId) { _activePop=null; return; }
+  _activePop = playerId;
+
+  const defs   = type==='pitcher' ? PITCHER_DEFS : BATTER_DEFS;
+  const saved  = getPlayerPrefs(playerId);
+  const active = saved ? saved.keys : (type==='pitcher' ? DEFAULT_PITCHER : DEFAULT_BATTER);
+
+  const pop = document.createElement('div');
+  pop.className = 'stat-pop';
+  pop.innerHTML = `
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:1px;margin-bottom:8px;">選擇顯示欄位</div>
+    <div style="display:flex;flex-wrap:wrap;gap:5px;">
+      ${defs.map(d=>`
+        <label class="stat-cb-label ${active.includes(d.key)?'checked':''}"
+          style="cursor:pointer;" onclick="togglePlayerStat(${playerId},'${type}','${d.key}',this)">
+          <input type="checkbox" style="display:none;" ${active.includes(d.key)?'checked':''}>${d.label}
+        </label>`).join('')}
+    </div>
+    <div style="margin-top:8px;text-align:right;">
+      <button onclick="document.querySelectorAll('.stat-pop').forEach(e=>e.remove());_activePop=null;"
+        style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);background:transparent;border:1px solid var(--border);border-radius:2px;padding:3px 8px;cursor:pointer;">關閉</button>
+    </div>`;
+
+  const card = document.getElementById('wlcard-'+playerId);
+  if (card) card.querySelector('.wl-stats').appendChild(pop);
+}
+
+function togglePlayerStat(playerId, type, key, label) {
+  const defs    = type==='pitcher' ? PITCHER_DEFS : BATTER_DEFS;
+  const saved   = getPlayerPrefs(playerId);
+  const defKeys = type==='pitcher' ? DEFAULT_PITCHER : DEFAULT_BATTER;
+  let   keys    = saved ? [...saved.keys] : [...defKeys];
+  const idx = keys.indexOf(key);
+  if (idx >= 0) { if(keys.length>1) keys.splice(idx,1); }
+  else keys.push(key);
+  // 保持欄位定義順序
+  keys = defs.map(d=>d.key).filter(k=>keys.includes(k));
+  setPlayerPrefs(playerId, { type, keys });
+  label.classList.toggle('checked', keys.includes(key));
+  // 重渲染此卡片成績
+  const statsEl = document.getElementById('wlstats-'+playerId);
+  if (statsEl) {
+    const cachedStat = LS.get('wls_'+playerId, 'v', CONFIG.CACHE_TTL_STATS);
+    if (cachedStat) statsEl.innerHTML = renderStatGrid(cachedStat, playerId, type);
+  }
+}
+
+// ── 渲染成績格 ──────────────────────────────────────────────
+function renderStatGrid(stats, playerId, type) {
+  if (!stats) return `<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);padding:4px 0;">尚無成績 / 春訓中</div>`;
+  const defs   = type==='pitcher' ? PITCHER_DEFS : BATTER_DEFS;
+  const saved  = getPlayerPrefs(playerId);
+  const keys   = saved ? saved.keys : (type==='pitcher' ? DEFAULT_PITCHER : DEFAULT_BATTER);
+  const active = defs.filter(d=>keys.includes(d.key));
+  return `<div class="wl-stats-grid">${active.map(d=>`
+    <div class="wl-stat-cell">
+      <div class="wl-stat-val ${d.hl?'hl':''}">${d.path(stats)}</div>
+      <div class="wl-stat-lbl">${d.label}</div>
+    </div>`).join('')}</div>`;
+}
+
+// ── 移除球員 ─────────────────────────────────────────────────
+function removeWLPlayer(id) {
+  if (!confirm('確定移除這位球員？')) return;
+  saveWatchlist(loadWatchlist().filter(p=>p.id!==id));
+  try { localStorage.removeItem('wls_'+id); } catch {}
+  renderWatchlist();
+}
+
+// ── 單張刷新 ─────────────────────────────────────────────────
+async function refreshWLCard(id) {
+  const player = loadWatchlist().find(p=>p.id===id);
+  if (!player) return;
+  const el = document.getElementById('wlstats-'+id);
+  if (el) el.innerHTML = `<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);">⟳ 更新中...</div>`;
+  const stats = await fetchPlayerStatWL(player, true);
+  if (el) el.innerHTML = renderStatGrid(stats, id, player.type);
+  // 更新 footer 時間
+  const ft = document.getElementById('wlft-'+id);
+  if (ft) ft.textContent = '更新: ' + new Date().toLocaleString('zh-TW',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+}
+
+// ── 渲染整個追蹤清單 ─────────────────────────────────────────
+async function renderWatchlist() {
+  const wl   = loadWatchlist();
+  const grid = document.getElementById('watchlistGrid');
+  if (!grid) return;
+
+  if (!wl.length) {
+    grid.innerHTML = `<div class="empty-watchlist" style="grid-column:1/-1;">
+      ⭐ 還沒有追蹤的球員<br>
+      <span style="font-size:10px;margin-top:6px;display:block;">MLB/MiLB：用上方搜尋列 → 輸入英文名 → 點「＋ 追蹤」</span>
+      <span style="font-size:10px;">NPB / CPBL：點「手動新增 NPB」</span>
+    </div>`;
+    return;
+  }
+
+  // 先渲染骨架
+  grid.innerHTML = wl.map(p => {
+    const leagueTag = {MLB:'tag-mlb',MiLB:'tag-milb',NPB:'tag-npb',CPBL:'tag-milb'}[p.league]||'tag-milb';
+    return `<div class="wl-card" id="wlcard-${p.id}">
+      <div class="wl-card-header">
+        <div style="flex:1;min-width:0;">
+          <div style="margin-bottom:6px;"><span class="league-tag ${leagueTag}">${p.league}</span></div>
+          <div class="wl-name">${esc(p.nameZh)}</div>
+          <div class="wl-meta">${p.nameZh!==p.nameEn?esc(p.nameEn)+' ｜ ':''} ${esc(p.team)} ｜ ${p.pos}</div>
+        </div>
+        <div class="wl-actions">
+          <button class="wl-btn" title="自訂欄位" onclick="openStatPop(${p.id},'${p.type}')" style="font-size:15px;">⚙</button>
+          <button class="wl-btn" title="重新整理" onclick="refreshWLCard(${p.id})" style="font-size:15px;">⟳</button>
+          <button class="wl-btn" title="移除" onclick="removeWLPlayer(${p.id})" style="font-size:15px;color:var(--red);">✕</button>
+        </div>
+      </div>
+      <div class="wl-stats" id="wlstats-${p.id}">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">⟳ 載入中...</div>
+      </div>
+      <div class="wl-footer">
+        <span>${p.type==='pitcher'?'⚾ 投手':'🏏 野手'} ｜ ${p.mlbId?'MLB API 即時':(p.league+' AI搜尋')}</span>
+        <span id="wlft-${p.id}" style="font-size:9px;"></span>
+      </div>
+    </div>`;
+  }).join('');
+
+  // 非同步填入成績
+  for (const p of wl) {
+    const stats = await fetchPlayerStatWL(p);
+    const el = document.getElementById('wlstats-'+p.id);
+    if (el) el.innerHTML = renderStatGrid(stats, p.id, p.type);
+    const ft = document.getElementById('wlft-'+p.id);
+    if (ft && stats) ft.textContent = '已快取';
+  }
+}
+
+// 點空白關掉 popover
+document.addEventListener('click', e => {
+  if (!e.target.closest('.stat-pop') && !e.target.closest('.wl-btn')) {
+    document.querySelectorAll('.stat-pop').forEach(el=>el.remove());
+    _activePop = null;
+  }
+});
+
 // ── 啟動 ───────────────────────────────────────────────────
 document.getElementById('buildTime').textContent = new Date().toLocaleString('zh-TW');
 renderSeasonBar();
 renderPlayers();
 loadCPBL(false);
-updateWBC(false);  // 先讀快取，有就直接顯示
+updateWBC(false);
+renderWatchlist();
 </script>
 </body>
 </html>
