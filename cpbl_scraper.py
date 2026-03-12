@@ -91,7 +91,7 @@ def scrape_standings():
                 w = int(nums[0])
                 l = int(nums[1])
                 pct_raw = float(nums[2]) if '.' in nums[2] else None
-                pct = f".{int(round((pct_raw or w/(w+l+0.001))*1000)):03d}" if w+l > 0 else ".000"
+                pct = f".{int(round((pct_raw if pct_raw is not None else w/(w+l+0.001))*1000)):03d}" if w+l > 0 else ".000"
                 gb = nums[3] if nums[3] != "0" else "-"
                 standings.append({
                     "rank": rank,
